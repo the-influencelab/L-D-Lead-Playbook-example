@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&D Transformation Lead | Kay Littlehales</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:   #1E4A1A;
+    --mint:    #6ECFB0;
+    --pink:    #ED93B1;
+    --yellow:  #FFE600;
+    --cream:   #FAF8F4;
+    --warm:    #F5F0E8;
+    --text:    #1C1C1C;
+    --muted:   #5E6A5A;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: var(--green);
+    color: white;
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.12;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: 160px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--pink);
+    opacity: 0.10;
+  }
+  .hero-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .hero h1 span { color: var(--mint); }
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tag {
+    background: rgba(110,207,176,0.15);
+    border: 1px solid rgba(110,207,176,0.35);
+    color: var(--mint);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 64px 0; }
+  section + section { border-top: 1px solid rgba(30,74,26,0.08); }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    background: var(--green);
+    padding: 48px 0;
+  }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    text-align: center;
+  }
+  .stat-item {
+    padding: 24px 16px;
+    border-right: 1px solid rgba(110,207,176,0.2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Lora', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--mint);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-desc {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  /* ── WHAT I BRING ── */
+  .bring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .bring-card {
+    background: white;
+    border-radius: 12px;
+    padding: 32px 28px;
+    border-top: 4px solid var(--mint);
+    box-shadow: 0 2px 16px rgba(30,74,26,0.06);
+  }
+  .bring-card.pink-top { border-top-color: var(--pink); }
+  .bring-card.yellow-top { border-top-color: var(--yellow); }
+  .bring-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--mint);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .bring-card.pink-top .bring-icon { background: var(--pink); }
+  .bring-card.yellow-top .bring-icon { background: var(--yellow); }
+  .bring-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .bring-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── FIRST 20 DAYS ── */
+  .days-bg {
+    background: var(--warm);
+  }
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .day-block {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(30,74,26,0.05);
+  }
+  .day-num {
+    font-family: 'Lora', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(110,207,176,0.25);
+    line-height: 1;
+    position: absolute;
+    top: 16px; right: 20px;
+  }
+  .day-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 8px;
+  }
+  .day-block h3 {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 12px;
+    max-width: 80%;
+  }
+  .day-list {
+    list-style: none;
+    padding: 0;
+  }
+  .day-list li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(30,74,26,0.06);
+  }
+  .day-list li:last-child { border-bottom: none; }
+  .day-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 13px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--mint);
+  }
+
+  /* ── DELIVERABLE ── */
+  .deliverable-strip {
+    background: var(--mint);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .deliverable-strip h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .deliverable-strip p {
+    font-size: 15px;
+    color: rgba(30,74,26,0.75);
+    max-width: 560px;
+    margin: 0 auto 28px;
+  }
+  .deliverable-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .d-box {
+    background: rgba(30,74,26,0.1);
+    border: 1px solid rgba(30,74,26,0.2);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 680px) { .exp-grid { grid-template-columns: 1fr; } }
+  .exp-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(30,74,26,0.05);
+    border-left: 5px solid var(--green);
+  }
+  .exp-card.mint-left { border-left-color: var(--mint); }
+  .exp-card.pink-left { border-left-color: var(--pink); }
+  .exp-card.yellow-left { border-left-color: var(--yellow); }
+  .exp-company {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .exp-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .exp-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .exp-outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .outcome-pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: rgba(110,207,176,0.15);
+    color: var(--green);
+  }
+
+  /* ── TESTIMONIAL ── */
+  .testimonial-section {
+    background: var(--green);
+    padding: 72px 0;
+  }
+  .testimonial-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 32px;
+  }
+  .quote-mark {
+    font-family: 'Lora', serif;
+    font-size: 96px;
+    color: var(--mint);
+    opacity: 0.3;
+    line-height: 0.6;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .testimonial-text {
+    font-family: 'Lora', serif;
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .author-dot {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+  }
+  .author-role {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ── TOOLS ── */
+  .tools-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tool-chip {
+    background: white;
+    border: 1.5px solid rgba(30,74,26,0.15);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 20px;
+  }
+  .tool-chip.filled {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .footer-name {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .footer-contact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+  .footer-contact a { color: var(--mint); text-decoration: none; }
+  .footer-line {
+    width: 40px; height: 3px;
+    background: var(--mint);
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 24px 44px; }
+    .container { padding: 0 20px; }
+    section { padding: 48px 0; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(110,207,176,0.2); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">L&amp;D Transformation Lead</div>
+    <h1>Kay Littlehales<br><span>Transformation Playbook</span></h1>
+    <p class="hero-sub">How I approach a transformation workstream, what I do in the first 20 days, and what I leave behind once the programme closes.</p>
+    <div class="hero-tags">
+      <span class="tag">Programme Leadership</span>
+      <span class="tag">RACI &amp; Milestone Planning</span>
+      <span class="tag">Steering Groups</span>
+      <span class="tag">Fishbone &amp; SEEN</span>
+      <span class="tag">Adult Learning Theory</span>
+      <span class="tag">Proof of Concept</span>
+    </div>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-num">25+</div>
+        <div class="stat-desc">years owning<br>programmes end to end</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-desc">managers reached in one<br>transformation programme</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">22</div>
+        <div class="stat-desc">countries across three<br>CPD approved academies</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">23%</div>
+        <div class="stat-desc">drop in new team<br>leader attrition</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">£500k</div>
+        <div class="stat-desc">saved on people<br>development</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12%</div>
+        <div class="stat-desc">sales uplift within<br>twelve months</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT I BRING -->
+<section>
+  <div class="container">
+    <div class="section-label">The difference</div>
+    <h2 class="section-title">What I bring to a transformation workstream</h2>
+    <p class="section-intro">I lead the learning workstream the way a programme director leads a project. That combination is rare, and it is what makes adoption last.</p>
+    <div class="bring-grid">
+      <div class="bring-card">
+        <div class="bring-icon">◎</div>
+        <h3>Project rigour inside learning design</h3>
+        <p>RACI frameworks, milestone planning, steering groups, proof of concept pilots and stakeholder scoping run through every programme I lead. The learning does not start until the structure is agreed.</p>
+      </div>
+      <div class="bring-card pink-top">
+        <div class="bring-icon" style="background:var(--pink)">⬡</div>
+        <h3>Data before design, always</h3>
+        <p>I use fishbone analysis and SEEN to find root cause before anything is scoped. A training request is never the starting point. The business problem is. That distinction decides whether a programme lands.</p>
+      </div>
+      <div class="bring-card yellow-top">
+        <div class="bring-icon" style="background:var(--yellow)">△</div>
+        <h3>Board level to frontline</h3>
+        <p>I operate at C suite and board level because transformation programmes are agreed there. And I stay hands on, because a programme agreed in a steering group has to work for the person on their first day in a new role.</p>
+      </div>
+      <div class="bring-card">
+        <div class="bring-icon">✦</div>
+        <h3>Adult learning theory built in, not bolted on</h3>
+        <p>Kolb's cycle, spaced practice, habit research, scenario based design. Theory informs every decision so behaviour change sticks after the programme closes, not just during it.</p>
+      </div>
+      <div class="bring-card pink-top">
+        <div class="bring-icon" style="background:var(--pink)">❖</div>
+        <h3>Global and cross-cultural delivery</h3>
+        <p>I have lived and worked in eight countries and built programmes across 22 countries in a single academy. Cultural resonance is not an afterthought in my design, it is a methodology.</p>
+      </div>
+      <div class="bring-card yellow-top">
+        <div class="bring-icon" style="background:var(--yellow)">◈</div>
+        <h3>Measurement that means something</h3>
+        <p>I evaluate at behaviour and business impact level. Not completion rates. Skills matrices, milestone tracking and observable change in how people work. The numbers above are the evidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIRST 20 DAYS -->
+<section class="days-bg">
+  <div class="container">
+    <div class="section-label">The first 20 days</div>
+    <h2 class="section-title">What I do before anything is designed</h2>
+    <p class="section-intro">Twenty days of structured observation, scoping and stakeholder alignment. The programme design comes after. This is what makes the difference between learning that lands and learning that fades.</p>
+    <div class="days-grid">
+      <div class="day-block">
+        <div class="day-num">01</div>
+        <div class="day-label">Days 1 to 5</div>
+        <h3>Listen, observe and map</h3>
+        <ul class="day-list">
+          <li>Convene initial steering group with key stakeholders</li>
+          <li>Establish RACI and reporting lines from day one</li>
+          <li>Observe the operation: floors, calls, handovers, team meetings</li>
+          <li>Begin SEEN framework: Situation, Evidence, Effect, Need</li>
+          <li>Map the stakeholder landscape and identify decision makers</li>
+        </ul>
+      </div>
+      <div class="day-block">
+        <div class="day-num">02</div>
+        <div class="day-label">Days 6 to 10</div>
+        <h3>Data gathering and root cause</h3>
+        <ul class="day-list">
+          <li>TNA across roles, levels and business units</li>
+          <li>Skills scans against agreed competency framework</li>
+          <li>Fishbone analysis sessions with operational leads</li>
+          <li>Review existing data: attrition, NPS, performance, complaints</li>
+          <li>Identify the real priorities versus the stated ones</li>
+        </ul>
+      </div>
+      <div class="day-block">
+        <div class="day-num">03</div>
+        <div class="day-label">Days 11 to 15</div>
+        <h3>Scoping and proof of concept</h3>
+        <ul class="day-list">
+          <li>Present findings to steering group with evidence</li>
+          <li>Agree scope, priorities and what will not be in scope</li>
+          <li>Design proof of concept for highest priority area</li>
+          <li>Build milestone plan with clear evaluation touch points</li>
+          <li>Secure sign off on approach before anything is built</li>
+        </ul>
+      </div>
+      <div class="day-block">
+        <div class="day-num">04</div>
+        <div class="day-label">Days 16 to 20</div>
+        <h3>Build and brief</h3>
+        <ul class="day-list">
+          <li>Pilot proof of concept with a representative cohort</li>
+          <li>Debrief with participants and line managers</li>
+          <li>Finalise programme blueprint based on live learning</li>
+          <li>Brief internal teams and champions on their role</li>
+          <li>Set baseline metrics for behaviour and business impact</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLE STRIP -->
+<div class="deliverable-strip">
+  <h2>What you have after 20 days</h2>
+  <p>A scoped, evidence based programme blueprint, with steering group sign off, a live proof of concept, baseline metrics and a milestone plan ready to run.</p>
+  <div class="deliverable-boxes">
+    <span class="d-box">Stakeholder Map</span>
+    <span class="d-box">RACI Framework</span>
+    <span class="d-box">Root Cause Analysis</span>
+    <span class="d-box">Skills Scan Results</span>
+    <span class="d-box">Programme Blueprint</span>
+    <span class="d-box">Pilot Findings</span>
+    <span class="d-box">Milestone Plan</span>
+    <span class="d-box">Baseline Metrics</span>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="container">
+    <div class="section-label">Track record</div>
+    <h2 class="section-title">Transformation programmes I have led</h2>
+    <p class="section-intro">Every programme below followed the same discipline: data first, structure before design, measurement that connects to business outcomes.</p>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-company">Royal Mail</div>
+        <h3>Enhanced Capability Management</h3>
+        <p>Led the UK's largest transformation programme, convening steering groups across all department heads, with RACI frameworks, milestone planning and 16 direct reports across a dispersed national operation. Started with fishbone analysis and SEEN before a single session was designed.</p>
+        <div class="exp-outcomes">
+          <span class="outcome-pill">1,000+ managers</span>
+          <span class="outcome-pill">23% attrition drop</span>
+          <span class="outcome-pill">10%+ productivity</span>
+          <span class="outcome-pill">Zero leavers</span>
+        </div>
+      </div>
+      <div class="exp-card mint-left">
+        <div class="exp-company">Commify</div>
+        <h3>Esendex US Acquisition Workstream</h3>
+        <p>Led the learning workstream for Commify's acquisition of Esendex into the US market, applying TNA, stakeholder mapping and RACI from the outset so the learning ran in parallel with the broader transformation, not behind it.</p>
+        <div class="exp-outcomes">
+          <span class="outcome-pill">Cross-border acquisition</span>
+          <span class="outcome-pill">Two distinct cultures</span>
+          <span class="outcome-pill">TNA from day one</span>
+        </div>
+      </div>
+      <div class="exp-card pink-left">
+        <div class="exp-company">Commify</div>
+        <h3>Three CPD Approved Academies</h3>
+        <p>Built the leadership, management and sales academies from scratch across 22 countries, holding full budget accountability. Designed Leadership Essentials as a proof of concept before full rollout. PROSPER sales methodology built alongside, now embedded as standard.</p>
+        <div class="exp-outcomes">
+          <span class="outcome-pill">22 countries</span>
+          <span class="outcome-pill">£500k saved</span>
+          <span class="outcome-pill">12% sales uplift</span>
+          <span class="outcome-pill">CPD approved</span>
+        </div>
+      </div>
+      <div class="exp-card yellow-left">
+        <div class="exp-company">Virgin Media Business</div>
+        <h3>C Suite Sales Excellence and Digital Capability</h3>
+        <p>Built the training team, onboarding and a coaching and mentoring academy from scratch. Designed C suite sales excellence development and led the Digital Allies programme, winning a competitive bid that secured accreditation and funding.</p>
+        <div class="exp-outcomes">
+          <span class="outcome-pill">C suite delivery</span>
+          <span class="outcome-pill">Academy from scratch</span>
+          <span class="outcome-pill">Competitive bid won</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE DEVELOPMENT & FACILITATION -->
+<section>
+  <div class="container">
+    <div class="section-label">The full picture</div>
+    <h2 class="section-title">People development, facilitation and leadership training</h2>
+    <p class="section-intro">Transformation programmes work when the people inside them are developed well. This is where I spend as much of my time as I do in the project structure.</p>
+    <div class="bring-grid">
+      <div class="bring-card">
+        <div class="bring-icon">◎</div>
+        <h3>Leadership and management development</h3>
+        <p>I have designed and delivered leadership programmes from first line manager through to senior leader level across contact centres, global SaaS businesses, hospitality, sport and the NHS. I build from competency frameworks outward, not from off the shelf content inward.</p>
+      </div>
+      <div class="bring-card pink-top">
+        <div class="bring-icon" style="background:var(--pink)">⬡</div>
+        <h3>Sales training and enablement</h3>
+        <p>I built PROSPER, a full end to end sales methodology with diagnostic, objection handling, mentorship archetypes and a mentorship programme. I also designed the sales academy at Commify, which delivered a 12% sales uplift. I do not separate sales development from leadership development; the best salespeople are the best communicators.</p>
+      </div>
+      <div class="bring-card yellow-top">
+        <div class="bring-icon" style="background:var(--yellow)">△</div>
+        <h3>Facilitation at all levels</h3>
+        <p>I facilitate workshops, away days and diagnostics with frontline teams, operational managers and C suite leaders. My facilitation draws on adult learning principles; I design for behaviour change in the room, not just content transfer. I am BT accredited as a Train the Trainer and have designed facilitation programmes for internal teams.</p>
+      </div>
+      <div class="bring-card">
+        <div class="bring-icon">✦</div>
+        <h3>Diagnostics and self-regulation</h3>
+        <p>I have built and delivered self-regulation, imposter phenomenon and identity diagnostics with archetype frameworks and individual reports. These have been delivered at Manchester Metropolitan University, within contact centre environments and with young adults programmes. Behaviour starts with self-awareness.</p>
+      </div>
+      <div class="bring-card pink-top">
+        <div class="bring-icon" style="background:var(--pink)">❖</div>
+        <h3>Induction and onboarding design</h3>
+        <p>I have built eight large induction and onboarding programmes, including the UK's largest, spanning 1,000 managers and 16 direct reports under my leadership at Royal Mail. I know how to build an onboarding programme that actually changes retention, because I have measured it.</p>
+      </div>
+      <div class="bring-card yellow-top">
+        <div class="bring-icon" style="background:var(--yellow)">◈</div>
+        <h3>Clients I have delivered for</h3>
+        <p>Royal Mail, Commify, Manchester City Football Group, Manchester United, Manchester Metropolitan University, BT, Virgin Media Business, JD Sport, Vaioni, Salford Business School, LQA, NHS, Channel 4, Hello Student and more. FTSE 100 companies, global businesses, contact centres and sports organisations across two decades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-section">
+  <div class="testimonial-inner">
+    <span class="quote-mark">"</span>
+    <p class="testimonial-text">Kay was the lead for our whole 2024 to 2026 L&D programmes and she was an exceptional strategic partner, with an observational eye and the flair to know when to roll her sleeves up and become the facilitator or trusted partner. Her people and project skills are what set her apart. She enabled us to slow down enough to build data driven decisions through skills scans, and to bring a collective business together to decide through fishbone methods what the real priorities were and how to run proof of concepts. She is meticulous at measuring behaviours, and as a result we now use skills matrices and milestone planning in everything we do, to promote a collective responsibility for learning. Her Drift to Drive framework builds more assertive relationships with commercial courage.</p>
+    <div class="testimonial-author">
+      <div class="author-dot">BR</div>
+      <div>
+        <div class="author-name">Bradley Rogers</div>
+        <div class="author-role">Head of L&amp;D and Talent Acquisition, Commify</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<section>
+  <div class="container">
+    <div class="section-label">Methods and frameworks</div>
+    <h2 class="section-title">The toolkit I bring to every programme</h2>
+    <p class="section-intro">These are not things I have read about. They are methods I use in live programmes, with real stakeholders, under real pressure.</p>
+    <div class="tools-wrap">
+      <span class="tool-chip filled">Fishbone Analysis</span>
+      <span class="tool-chip filled">SEEN Framework</span>
+      <span class="tool-chip filled">RACI</span>
+      <span class="tool-chip filled">Milestone Planning</span>
+      <span class="tool-chip filled">Steering Groups</span>
+      <span class="tool-chip filled">TNA</span>
+      <span class="tool-chip filled">Proof of Concept</span>
+      <span class="tool-chip filled">Skills Scans</span>
+      <span class="tool-chip">Kolb's Learning Cycle</span>
+      <span class="tool-chip">Spaced Practice</span>
+      <span class="tool-chip">Scenario Based Learning</span>
+      <span class="tool-chip">Drift to Drive Framework</span>
+      <span class="tool-chip">Kirkpatrick Levels 3 and 4</span>
+      <span class="tool-chip">Stakeholder Mapping</span>
+      <span class="tool-chip">Competency Frameworks</span>
+      <span class="tool-chip">CPD Accreditation</span>
+      <span class="tool-chip">SAP SuccessFactors</span>
+      <span class="tool-chip">Power BI</span>
+<span class="tool-chip">Adult Learning Principles</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-line"></div>
+  <div class="footer-name">Kay Littlehales</div>
+  <div class="footer-contact">MInstSMM &nbsp;|&nbsp; ISSM Accredited &nbsp;|&nbsp; BT Accredited Train the Trainer</div>
+  <div class="footer-contact" style="margin-top:10px;">
+    <a href="mailto:InfluenceL8b@outlook.com">InfluenceL8b@outlook.com</a>
+    &nbsp;&nbsp;07986 641378
+  </div>
+  <div class="footer-contact" style="margin-top:8px; font-size:11px;">The Influence Lab</div>
+  <div class="footer-line"></div>
+</footer>
+
+</body>
+</html>
